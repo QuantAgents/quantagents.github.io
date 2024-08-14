@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="QuantAgents">
+  <meta name="keywords" content="Large Language Models; Multi-agent System; Quantitative Finance;Automated Trading">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QuantAgents</title>
+
+
+
+  <link rel="icon" href="./static/images/icon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/explorer-index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+
+  <script src="./static/js/leaderboard_testmini.js"></script>  
+  <script src="./data/results/output_folders.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 style="font-family: 'Times New Roman'; font-size: 46px;"><b>QuantAgents:</b></h1>
+          <h2 style="font-family: 'Times New Roman'; font-size: 46px;"><b>Towards Multi-agent Financial System via Simulated Trading</b></h2>
+
+
+
+
+          <!--div class="column has-text-centered">-->
+           <!-- <div class="publication-links">
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>-->
+
+              <!--<span class="link-block">
+                <a href="https://hedgeagents.github.io/#1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://hedgeagents.github.io/#leaderboard"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🏆</p>
+                  </span>
+                  <span>Leaderboard</span>
+                </a>
+              </span>-->
+
+              <!-- Visualization Link. -->
+              <!--<span class="link-block">
+                <a href="https://hedgeagents.github.io/#visualization"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🔮</p>
+                  </span>
+                  <span>Visualization</span>
+                </a>
+              </span>
+
+              <script>
+                  window.addEventListener('load', function() {
+                    const urls = [
+                      'https://bb0eec8976f38a480c.gradio.live',
+                      'https://94c50413658b59829f.gradio.live',
+                      'https://16440e488436f49d99.gradio.live',
+                      'https://02edd560d60615d755.gradio.live',
+                    ];
+                    const randomIndex = Math.floor(Math.random() * urls.length);
+                    const randomURL = urls[randomIndex];
+                    document.getElementById('randomLink').href = randomURL;
+                  });
+                </script>
+
+<!--               <span class="link-block">
+                <a id="randomLink" href="#" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-play"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span> -->
+              <!-- Leaderboard Link. -->
+
+              <!-- <span class="link-block">
+                <a href="https://hedgeagents.github.io/#agent"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <p style="font-size:18px">🤖</p>
+                  </span>
+                  <span>Agent</span>
+                  </a>
+              </span> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="content has-text-centered">
+      <img src="static/images/tease_scores_gpt4v.png" alt="geometric reasoning" width="99%"/>
+      <p> Accuracy scores of one leading LLM (i.e., PoT GPT-4), four primary LMMs, random chance, and human performance our proposed 
+      <img src="static/images/mathvista.png" style="width:1.0em;vertical-align: middle" alt="Logo"/>
+      <span class="mathvista">MathVista</span>
+      across mathematical reasoning and visual context types. PoT refers to program-of-thought prompting, and PoT GPT-4 is a textual LLM augmented with the caption and OCR text. GPT-4V is manually evaluated via the playground chatbot.
+      </p>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 style="font-family: 'Times New Roman'; font-size: 36px;"><b>Abstract</b></h2>
+        <div class="content has-text-justified">
+           <p style="font-family: 'Times New Roman'; font-size: 20px;">
+             In this paper, our objective is to develop a multi-agent financial system that incorporates <b>simulated trading</b>, a technique extensively utilized by financial professionals. While current LLM-based agent models demonstrate competitive performance, they still exhibit significant deviations from real-world fund companies. A critical distinction lies in the agents' reliance on ``post-reflection'', particularly in response to adverse outcomes, but lack a distinctly human capability: long-term prediction of future trends. Therefore, we introduce <b>QuantAgents</b>, a multi-agent system integrating simulated trading, to comprehensively evaluate various investment strategies and market scenarios without assuming actual risks. Specifically, QuantAgents comprises four agents: a simulated trading analyst, a risk control analyst, a market news analyst, and a manager, who collaborate through several meetings. Moreover, our system incentivizes agents to receive feedback on two fronts: performance in real-world markets and predictive accuracy in simulated trading. Extensive experiments demonstrate that our framework excels across all metrics, yielding an overall return of nearly 300\% over the three years.
+
+           </p>
+          <div class="image-container" style="text-align: center;">
+      <img id="model" src="static/images/quantagents_prudex.png" style="width: 95%;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+
+<section class="section">
+  <div class="container" style="margin-bottom: 2vh;">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 style="font-family: 'Times New Roman'; font-size: 36px;"><b>Overall Framework</b></h2>
+        <div class="content has-text-justified">
+          <p style="font-family: 'Times New Roman'; font-size: 20px;">
+        QuantAgents comprises four specialized agents, each contributing to different aspects of fund management:
+          </p>
+          <div style="text-align: left;">
+        <ul style="font-family: 'Times New Roman'; font-size: 20px; list-style-position: outside; padding-left: 20px;">
+          <li><strong>Otto, the Manager:</strong> Responsible for executing decisions.</li>
+          <li><strong style="color: blue;">Bob, the Simulated Trading Analyst:</strong> In charge of testing strategies.</li>
+          <li><strong style="color: olive;">Dave, the Risk Control Analyst:</strong> Evaluates risks associated with various investment decisions.</li>
+          <li><strong style="color: red;">Emily, the Market News Analyst:</strong> Provides comprehensive market reports.</li>
+        </ul>
+      </div>
+          <p style="font-family: 'Times New Roman'; font-size: 20px;">
+
+      </p>
+           <p style="font-family: 'Times New Roman'; font-size: 20px;">
+        These agents collaborate by participating in various meetings to assist manager Otto in decision-making. Among these meetings, market analysis meetings are held weekly to produce comprehensive market reports, while strategy analysis meetings also occur weekly, focusing on enhancing investment strategies through simulated trading. Additionally, risk alert meetings are convened as needed.
+      </p>
+        </div>
+        <img id="model" width="100%" src="static/images/frameworkhtml.png">
+        <div class="content has-text-centered">
+          <p style="font-family:Times New Roman; font-size: 16px;">The workflow of QuantAgents, which is equipped with 26 tools, 3 types of memory to execute 10 actions. Furthermore, three meetings, i.e., <strong style="color: red;">market analysis</strong>, <strong style="color: blue;">strategy development</strong>, <strong style="color: olive;">risk alert</strong> meeting will assist in decision-making (e.g., buy).</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered content">
+
+        <div class="content">
+
+
+        <h2 style="font-family:Times New Roman; font-size: 36px;" id="leaderboard"><b>Leaderboard on NASDAQ-100 Financial Dataset</b></h2>
+        <div class="content">
+          <p style="font-family:Times New Roman; font-size: 20px;">Leaderboard for evaluating various methods on 9 metrics in the <b>NASDAQ-100 Financial Dataset</b>.
+
+          </p>
+
+          <table class="js-sort-table" id="results">
+            <tr>
+                <td class="js-sort-number"><strong>#</strong></td>
+                <td class="js-sort-number"><strong>Models</strong></td>
+                <td class="js-sort-number"><strong>Categories</strong></td>
+                <td class="js-sort-number"><strong>Source</strong></td>
+                <td class="js-sort-number"><strong>ARR(%)</strong></td>
+                <td class="js-sort-number"><strong>TR(%)</strong></td>
+                <td class="js-sort-number"><strong>SR</strong></td>
+                <td class="js-sort-number"><strong>CR</strong></td>
+                <td class="js-sort-number"><strong>SoR</strong></td>
+                <td class="js-sort-number"><strong>MDD(%)</strong></td>
+                <td class="js-sort-number"><strong>Vol(%)</strong></td>
+                <td class="js-sort-number"><strong>ENT</strong></td>
+                <td class="js-sort-number"><strong>ENB</strong></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><b class="best-score-text">QuantAgents 🥇</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://quantagents.github.io/" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td><b class="best-score-text">58.68</b></td>
+              <td><b class="best-score-text">299.55</b></td>
+              <td><b class="best-score-text">3.11</b></td>
+              <td><b class="best-score-text">11.38</b></td>
+              <td><b class="best-score-text">66.94</b></td>
+              <td><b class="best-score-text">16.86</b></td>
+              <td><b class="best-score-text">1.43</b></td>
+              <td><b class="best-score-text">2.97</b></td>
+              <td><b class="best-score-text">1.49</b></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><b class="best-score-text">FinAgent 🥈</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://arxiv.org/abs/2402.18485" class="ext-link" style="font-size: 16px;">Link</a></td>
+
+              <td><b>45.31</b></td>
+              <td><b>206.83</b></td>
+              <td><b>2.25</b></td>
+              <td>6.98</td>
+              <td><b>47.66</b></td>
+              <td>38.48</td>
+              <td>2.92</td>
+              <td>2.71</td>
+              <td><b>1.38</b></td>
+
+
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><b class="best-score-text">FinMem 🥉</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://arxiv.org/abs/2311.13743" class="ext-link" style="font-size: 16px;">Link</a></td>
+
+              <td>37.73</td>
+              <td>161.25</td>
+              <td>1.89</td>
+              <td>6.16</td>
+              <td>43.02</td>
+              <td>40.19</td>
+              <td>2.82</td>
+              <td>2.25</td>
+              <td>1.24</td>
+
+
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td><b class="">FinGPT</b></td>
+              <td>LLM-based 👑️</td>
+              <td><a href="https://arxiv.org/abs/2306.06031" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>36.71</td>
+              <td>155.52</td>
+              <td>1.66</td>
+              <td>6.34</td>
+              <td>42.31</td>
+              <td>37.99</td>
+              <td>2.83</td>
+              <td>1.94</td>
+              <td>1.21</td>
+
+
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><b class="">AlphaMix+</b></td>
+              <td>RL-Based 🎮</td>
+              <td><a href="https://github.com/TradeMaster-NTU/PRUDEX-Compass" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>32.51</td>
+              <td>132.72</td>
+              <td>1.49</td>
+              <td>5.76</td>
+              <td>30.66</td>
+              <td>40.71</td>
+              <td>2.85</td>
+              <td><b>2.76</b></td>
+              <td>1.36</td>
+
+
+
+            <tr>
+              <td>6</td>
+              <td><b class="">DeepTrader</b></td>
+              <td>RL-based 🎮</td>
+              <td><a href="https://ojs.aaai.org/index.php/AAAI/article/view/16144" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>32.06</td>
+              <td>130.29</td>
+              <td>1.27</td>
+              <td><b>7.16</b></td>
+              <td>30.31</td>
+              <td><b>29.16</b></td>
+              <td><b>2.81</b></td>
+              <td>1.88</td>
+              <td>1.19</td>
+
+
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><b class="">SAC</b></td>
+              <td>RL-based 🎮</td>
+              <td><a href="https://arxiv.org/abs/1812.05905" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>22.14</td>
+              <td>82.23</td>
+              <td>0.84</td>
+              <td>2.99</td>
+              <td>23.63</td>
+              <td>40.13</td>
+              <td>2.85</td>
+              <td>1.49</td>
+              <td>1.11</td>
+
+
+            </tr>
+
+
+            <tr>
+              <td>8</td>
+              <td><b class="">MV</b></td>
+              <td>Rule-Based 🛠</td>
+              <td><a href="https://econpapers.repec.org/article/eeejfinec/v_3a100_3ay_3a2011_3ai_3a2_3ap_3a367-381.htm" class="ext-link" style="font-size: 16px;">Link</a></td>
+
+              <td>11.30</td>
+              <td>37.87</td>
+              <td>0.72</td>
+              <td>3.27</td>
+              <td>22.05</td>
+              <td>64.15</td>
+              <td>5.79</td>
+              <td>1.01</td>
+              <td>1.02</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><b class="">TSM</b></td>
+              <td>Rule-Based 🛠️</td>
+              <td><a href="https://econpapers.repec.org/article/eeejfinec/v_3a104_3ay_3a2012_3ai_3a2_3ap_3a228-250.htm" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>5.68</td>
+              <td>18.02</td>
+              <td>0.64</td>
+              <td>3.11</td>
+              <td>17.27</td>
+              <td>58.36</td>
+              <td>5.65</td>
+              <td>1.03</td>
+              <td>1.07</td>
+
+
+
+
+
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><b class="">ZMR</b></td>
+              <td>Rule-Based 🛠</td>
+              <td><a href="https://arxiv.org/abs/1612.03347" class="ext-link" style="font-size: 16px;">Link</a></td>
+              <td>4.19</td>
+              <td>13.1</td>
+              <td>0.63</td>
+              <td>2.52</td>
+              <td>18.43</td>
+              <td>72.89</td>
+              <td>5.82</td>
+              <td>1.43</td>
+              <td>1.09</td>
+
+
+            </tr>
+        </table>
+
+          <p style="font-family:Times New Roman; font-size: 16px;">🚨<b>Evaluation Metrics:</b>
+          <b>ARR:</b> Annual Return Rate,
+          <b>TR:</b> Total Return,
+          <b>SR:</b> Sharpe Ratio,
+          <b>CR:</b> Calmar Ratio,
+          <b>SoR:</b> Sortino Ratio,
+          <b>MDD:</b> Maximum Drawdown,
+          <b>Vol:</b> Volatility,
+          <b>ENT:</b> Entrop,
+          <b>ENB:</b> Effect Number of Bets.
+          <br>
+            <br></p>
+          <div>
+
+          <p style="font-family:Times New Roman; font-size: 16px;">🚨 The <b>Multi-Asset Financial Dataset</b> comprising Bitcoin, foreign exchange, and the Dow Jones component stocks. These data were sourced from reputable financial databases, namely Yahoo Finance and the Alpaca News API. The dataset spans from January 1, 2015, to December 31, 2023, encompassing daily data points such as open, high, low, and close prices, as well as volume and adjusted close prices. Additionally, daily news updates and 60 standard technical analysis indicators are included for each asset .
+          </p>
+          <br>
+          </div>
+          <img id="model" width="90%" src="static/images/All_CR.png">
+
+          <p style="font-family:Times New Roman; font-size: 16px;">
+            Cumulative Returns Comparison of our QuantAgents and all baselines.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+            
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 style="font-family:Times New Roman; font-size: 36px;" id="visualization"><b>QuantAgents Meeting Mechanisms Video Demonstrations</b></h2>
+        <div class="content has-text-justified">
+          <p style="font-family:Times New Roman; font-size: 20px;">
+           To thoroughly examine our framework's cognitive processes during execution, we have employed visualizations to elucidate multi-agent collaborative processes.
+            This section presents three video demonstrations highlighting the collaborative nature of key meetings within QuantAgents.
+          </p>
+          </div>
+          <p style="font-family:Times New Roman; font-size: 20px;">
+            <b>Market Analysis Meeting:</b> This video illustrates the collaborative process where agents analyze market trends, industry dynamics, and individual stock performances to inform investment decisions.
+          </p>
+          <p> <strong style="color: white;">aaa</strong>  </p>
+          <div class="content has-text-centered">
+            <video width="80%" controls>
+          <source src="static/images/vis1.mp4" type="video/mp4">
+
+          </video>
+
+
+
+            <br>
+          </div>
+          <p style="font-family:Times New Roman; font-size: 20px;">
+            <b>Strategy Development Meeting:</b> In this video, the agents work together to develop and refine trading strategies. The meeting includes evaluations through simulated trading to ensure that the strategies are both effective and resilient.
+          </p>
+                    <p> <strong style="color: white;">aaa</strong>  </p>
+          <div class="content has-text-centered">
+            <video width="80%" controls>
+          <source src="static/images/vis2.mp4" type="video/mp4">
+
+          </video>
+                        <br>
+          </div>
+          <p style="font-family:Times New Roman; font-size: 20px;">
+            <b>Risk Alert Meeting:</b>This video demonstrates the team’s collaborative efforts to monitor portfolio risk and evaluate strategies based on risk forecasts. The goal is to ensure the system's resilience and adaptability to market fluctuations.
+          </p>
+                    <p> <strong style="color: white;">aaa</strong>  </p>
+          <div class="content has-text-centered">
+            <video width="80%" controls>
+          <source src="static/images/vis3.mp4" type="video/mp4">
+
+          </video>
+
+
+        </div>
+      </div>
+    </div>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <!-- <div class="column is-full-width has-text-centered"> -->
+        <div class="column is-four-fifths">
+        <h2 style="font-family:Times New Roman; font-size: 36px;" id="visualization"><b>Algorithms</b></h2>
+        <div class="content has-text-justified">
+
+            <br>
+            <div class="content has-text-justified">
+            <p style="font-family:Times New Roman; font-size: 20px;">
+             The following content outlines the core algorithms that constitute the decision-making fabric of the QuantAgents Coordination Framework.Below is provided a detailed examination of each algorithm through pseudocode, elucidating the procedural steps and decision-making criteria that govern the collaborative interactions among agents within the QuantAgents system.
+          </p>
+              </div>
+
+          </div>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/vis5.png" alt="algebraic reasoning" width="100%"/>
+
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/vis6.png" alt="algebraic reasoning" width="100%"/>
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/vis7.png" alt="algebraic reasoning" width="100%"/>
+
+              </div>
+            </div>
+            <div class="box m-5">
+              <div class="content has-text-centered">
+                <img src="static/images/vis8.png" alt="algebraic reasoning" width="100%"/>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="columns is-centered m-6">
+      <div class="column is-full has-text-centered content">
+        <h2 style="font-family:Times New Roman; font-size: 36px;" id="agent">Agent</h2>
+        <div class="content has-text-justified">
+        <p style="font-family:Times New Roman; font-size: 20px;">The following content provides an exhaustive outline of the QuantAgents team member profiles, which are integral to our investment decision-making simulation. The profiles are articulated using XML, chosen for its flexibility and robustness in structuring and representing complex data. XML's self-descriptive nature and the ability to define custom tags make it an ideal choice for encoding the intricate details of each agent's profile. It allows for a high degree of customization and scalability, which is essential for simulating a dynamic and complex environment such as a hedge fund's investment strategy.
+        </p>
+        </div>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent1.png" alt="arithmetic reasoning" width="80%"/>
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent2.png" alt="algebraic reasoning" width="80%"/>
+
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent3.png" alt="geometric reasoning" width="80%"/>
+
+            </div>
+          </div>
+          <div class="box m-5">
+            <div class="content has-text-centered">
+              <img src="static/images/agent4.png" alt="logical reasoning" width="80%"/>
+
+            </div>
+          </div>
+
+
+          
+        </div>
+
+        <br><br>
+
+
+        </div>
+      </div>
+    </div>
+</section>
+
+</body>
+</html>
